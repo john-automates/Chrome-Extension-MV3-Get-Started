@@ -1,0 +1,29 @@
+{
+    "name": "My Team's First Chrome Extension",
+    "description": "Getting started with Chrome Extensions",
+    "version": "1.0",
+    "manifest_version": 3,
+    "externally_connectable": {"ids": [], "matches": []},
+    "permissions": [
+        "scripting",
+        "contextMenus",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "<all_urls>"
+        
+    ],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "all_frames": true,
+            "js": [
+                "contentScript.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
